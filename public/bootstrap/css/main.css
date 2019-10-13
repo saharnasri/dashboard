@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color:#eee;
+}
+
+.form-signin{
+	margin:15% auto;
+    padding: 1rem;
+	width:400px;
+	float:none;
+}
+.well{
+ background-color:#ccc;
+}

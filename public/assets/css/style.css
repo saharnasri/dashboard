@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'IRANSans';
+    src: url('../fonts/IRANSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANSans_Medium';
+    src: url('../fonts/IRANSans_Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans_Bold';
+    src: url('../fonts/IRANSans_Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans_Light';
+    src: url('../fonts/IRANSans_Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html,
+body, body > .row, .login, .dashboard{
+    font-family: 'IRANSans', IRANSans_Medium, IRANSans_Bold, IRANSans_Light, Arial, serif;
+}
+
+body {
+    background-color: #D3D3D3!important;
+}
+
+
+/* login page */
+.login {
+    width: 400px;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.login-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.login-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.login-content {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+    background-color: #ffffff;
+    padding: 35px 20px 30px 20px;
+}
+.btn-lb {
+    border-radius: 20px!important;
+}
+.lgnbtn {
+    margin-top: -3px;
+    padding: 5px 25px!important;
+    color: white!important;
+    background-image: linear-gradient(to right, rgba(255, 51, 51, 1), rgba(204, 51, 204, 1));
+}
+.lgnbtn a{
+    color: white;
+}
+.lgnbtn a:hover {
+    color: white;
+    text-decoration: none;
+}
+.btn-div {
+    text-align: left;
+}
+
+/* dashboard page */
+.dshbrd-nav{
+    background-color: #363b3b;
+    color: #ffffff;
+    height: 40px;
+    text-align: left;
+}
+.dshbrd-nav-title{
+    background-color: #363b3b;
+    color: #ffffff;
+    height: 40px;
+    text-align: center;
+}
+.dshbrd-sidebar{
+    background-color: #3f4545;
+    color: #ffffff;
+}
+.dshbrd-sidebar-ul {
+    list-style: none;
+    padding-right: 0;
+}
+.dshbrd-sidebar-ul li {
+    text-align: center;
+}
+.dshbrd-sidebar-ul li a {
+    color: #ffffff;
+    display: block;
+    padding: 10px 3px;
+}
+.dshbrd-sidebar-ul li a:hover {
+    text-decoration: none;
+    background-color: #545b62;
+}
