@@ -80,18 +80,22 @@ body {
 .dshbrd-nav{
     background-color: #363b3b;
     color: #ffffff;
-    height: 40px;
+    height: 100%;
+    padding: 7px;
     text-align: left;
 }
 .dshbrd-nav-title{
     background-color: #363b3b;
     color: #ffffff;
-    height: 40px;
+    height: 100%;
+    padding: 7px;
     text-align: center;
 }
+
 .dshbrd-sidebar{
     background-color: #3f4545;
     color: #ffffff;
+    height: 100%;
 }
 .dshbrd-sidebar-ul {
     list-style: none;
@@ -99,6 +103,7 @@ body {
 }
 .dshbrd-sidebar-ul li {
     text-align: center;
+    border-bottom: 1px #818c8c solid
 }
 .dshbrd-sidebar-ul li a {
     color: #ffffff;
@@ -108,4 +113,30 @@ body {
 .dshbrd-sidebar-ul li a:hover {
     text-decoration: none;
     background-color: #545b62;
+}
+.dshbrd-sidebar-ul li:active{
+    background-color: #545b62;
+}
+.dshbrd-content {
+    background-color: #f2f3f3;
+    height: 100%;
+    min-height: 500px;
+    padding: 50px;
+}
+
+
+/* Grade Page */
+.page {
+    padding: 20px;
+    background-color: #fcfcfc;
+    border-radius: 5px;
+}
+.pageTitle{
+    border-bottom: 1px #818c8c solid;
+}
+.pageTitle h4 {
+    margin-bottom: 10px;
+}
+.pageForm {
+    padding: 20px 60px;
 }

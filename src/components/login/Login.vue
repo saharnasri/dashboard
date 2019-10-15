@@ -10,15 +10,14 @@
                         <div class="login-title">
                             <h3>ورود کاربران</h3>
                         </div>
-                        <form>
+                        <form @submit="onSubmit">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">نام کاربری</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-<!--                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                <label for="username">نام کاربری</label>
+                                <input type="text" class="form-control" id="username" v-model="username"  placeholder="">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">رمز عبور</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <label for="password">رمز عبور</label>
+                                <input type="password" class="form-control" id="password" v-model="password" placeholder="">
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -39,7 +38,28 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
+        data(){
+            return {
+                username: '',
+                password: ''
+            }
+        },
+        methods: {
+            onSubmit(){
+                const loginData = {
+                    username: this.username,
+                    password: this.password
+                }
+                console.log(loginData)
+                axios.post('http://www.livebook.com/json') //backend URL
+                    .then(()=>{
+
+
+                    })
+            }
+        }
 
     }
 </script>
