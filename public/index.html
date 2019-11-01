@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <title>پروژه من</title>
   </head>
@@ -17,5 +17,15 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      function activeTab(evt) {
+        var i, sidebarLi;
+        sidebarLi = document.getElementsByClassName("sidebarLi");
+        for (i = 0; i < sidebarLi.length; i++) {
+          sidebarLi[i].className = sidebarLi[i].className.replace(" active", "");
+        }
+        evt.currentTarget.className += " active";
+      }
+    </script>
   </body>
 </html>

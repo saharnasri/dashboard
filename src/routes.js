@@ -1,4 +1,9 @@
-import Login from "./components/login/Login";
+import store from './store.js'
+
+import Home from "./components/Home";
+
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 const Dashboard = resolve =>{
     require.ensure(['./components/dashboard/Dashboard'], ()=>{
@@ -29,13 +34,20 @@ const Levels = resolve =>{
 
 
 export const routes = [
-    {path:'/', name:'login', component: Login},
+    {path:'/', name:'home', component: Home},
+    {path:'/login', name:'login', component: Login},
+    {path:'/Register', name:'register', component: Register},
     {path:'/dashboard', component: Dashboard,
         children:[
             {path: '',component: Welcome},
             {path: 'contents',component: Contents},
             {path: 'books',component: Books},
             {path: 'levels',component: Levels}
-        ]},
+        ],
+        meta: {
+            requiresAuth: true
+        }
+    },
     {path:'*', redirect: {name:'login'}}
 ]
+

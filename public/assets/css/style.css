@@ -25,7 +25,7 @@
     font-style: normal;
 }
 html,
-body, body > .row, .login, .dashboard{
+body, body > .row, .login, .register, .dashboard{
     font-family: 'IRANSans', IRANSans_Medium, IRANSans_Bold, IRANSans_Light, Arial, serif;
 }
 
@@ -33,8 +33,23 @@ body {
     background-color: #D3D3D3!important;
 }
 
+.alert-msg {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
 
-/* login page */
+
+/* auth page */
+.register {
+    width: 400px;
+    max-width: 90%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    left: 50%;
+    position: absolute;
+    transform: translatex(-50%);
+}
 .login {
     width: 400px;
     max-width: 90%;
@@ -64,13 +79,6 @@ body {
     padding: 5px 25px!important;
     color: white!important;
     background-image: linear-gradient(to right, rgba(255, 51, 51, 1), rgba(204, 51, 204, 1));
-}
-.lgnbtn a{
-    color: white;
-}
-.lgnbtn a:hover {
-    color: white;
-    text-decoration: none;
 }
 .btn-div {
     text-align: left;
@@ -105,6 +113,9 @@ body {
     text-align: center;
     border-bottom: 1px #818c8c solid
 }
+.active{
+    background-color: #545b62;
+}
 .dshbrd-sidebar-ul li a {
     color: #ffffff;
     display: block;
@@ -123,9 +134,24 @@ body {
     min-height: 500px;
     padding: 50px;
 }
+@media only screen and (min-width: 768px) {
+    .pdng-md-r0 {
+        padding-right: 0!important;
+    }
+    .pdng-md-l0 {
+        padding-left: 0!important;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .pageForm {
+        padding: 0!important;
+    }
+    .dshbrd-content {
+        padding: 30px!important;
+    }
+}
 
-
-/* Grade Page */
+/* Components Page */
 .page {
     padding: 20px;
     background-color: #fcfcfc;
