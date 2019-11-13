@@ -11,9 +11,7 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }
 
-// axios.defaults.baseURL= 'https://jsonplaceholder.typicode.com'  //backend URL
-// axios.defaults.baseURL= 'http://192.168.100.107:6002'  //backend URL
-axios.defaults.baseURL= 'https://api.livebook-app.ir/'  //backend URL
+axios.defaults.baseURL= 'https://bazarti.com/'  //backend URL
 
 // axios.defaults.headers.common['Authorization'] = 'bearer token';
 // axios.defaults.headers.get['Accepts'] = 'application/json';

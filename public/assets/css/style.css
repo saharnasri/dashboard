@@ -30,7 +30,7 @@ body, body > .row, .login, .register, .dashboard{
 }
 
 body {
-    background-color: #D3D3D3!important;
+    background-color: #f2f3f3!important;
 }
 
 .alert-msg {
@@ -165,4 +165,34 @@ body {
 }
 .pageForm {
     padding: 20px 60px;
+}
+
+/* Homepage*/
+.top-menu {
+    background-color: #0c5460;
+    margin: 0 -15px!important;
+    height: 60px;
+    color: white;
+}
+.top-menu a {
+    color: white;
+}
+.top-menu a:hover {
+    color: white;
+    text-decoration: none;
+}
+.video-gallery {
+    background-color: #d4edda;
+    min-height: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+.video-container {
+    max-width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+
+
 }

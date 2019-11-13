@@ -4,6 +4,7 @@ import Home from "./components/Home";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import verify from "./components/auth/verify";
 
 const Dashboard = resolve =>{
     require.ensure(['./components/dashboard/Dashboard'], ()=>{
@@ -15,38 +16,39 @@ const Welcome = resolve =>{
         resolve(require('./components/dashboard/management/Welcome'));
     })
 }
-const Contents = resolve =>{
-    require.ensure(['./components/dashboard/management/Contents'], ()=>{
-        resolve(require('./components/dashboard/management/Contents'));
+const Videos = resolve =>{
+    require.ensure(['./components/dashboard/management/Videos'], ()=>{
+        resolve(require('./components/dashboard/management/Videos'));
     })
 }
-const Books = resolve =>{
-    require.ensure(['./components/dashboard/management/Books'], ()=>{
-        resolve(require('./components/dashboard/management/Books'));
-    })
-}
-const Levels = resolve =>{
-    require.ensure(['./components/dashboard/management/Levels'], ()=>{
-        resolve(require('./components/dashboard/management/Levels'));
+const Upload = resolve =>{
+    require.ensure(['./components/dashboard/management/Upload'], ()=>{
+        resolve(require('./components/dashboard/management/Upload'));
     })
 }
 
+const EditVideo = resolve =>{
+    require.ensure(['./components/dashboard/management/EditVideo'], ()=>{
+        resolve(require('./components/dashboard/management/EditVideo'));
+    })
+}
 
 
 export const routes = [
     {path:'/', name:'home', component: Home},
     {path:'/login', name:'login', component: Login},
     {path:'/Register', name:'register', component: Register},
+    {path:'/verify', name:'verify', component: verify},
     {path:'/dashboard', component: Dashboard,
         children:[
             {path: '',component: Welcome},
-            {path: 'contents',component: Contents},
-            {path: 'books',component: Books},
-            {path: 'levels',component: Levels}
+            {path: 'Videos',component: Videos},
+            {path: 'Upload',component: Upload},
+            {path: 'EditVideo',component: EditVideo}
         ],
-        meta: {
-            requiresAuth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {path:'*', redirect: {name:'login'}}
 ]

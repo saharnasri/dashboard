@@ -1,25 +1,23 @@
 <template>
     <div class="page">
         <div class="pageTitle">
-            <h4>افزودن پایه درسی</h4>
+            <h4>افزودن ویدئو</h4>
         </div>
         <div class="pageForm">
-            <form @submit.prevent="onSubmit">
+            <form @submit.prevent="addSchoolGrade">
                 <div class="form-group mb-4">
-                    <label for="Name">نام پایه درسی *</label>
+                    <label for="Name">نام ویدئو *</label>
                     <input type="text" class="form-control" id="Name" placeholder="" v-model="Name" required>
                 </div>
                 <div class="form-group mb-4">
-                    <label for="Description">توضیحات پایه درسی *</label>
-                    <textarea class="form-control" id="Description" rows="3" v-model="Description" required></textarea>
-                </div>
-                <div class="form-group mb-4">
-                    <label for="GradeImage">تصویر پایه درسی *</label><small class="mx-2 text-info">(حداکثر 2Mb)</small>
-                    <input type="file" class="form-control-file" id="GradeImage" required>
+                    <label for="GradeImage">بارگذاری ویدئو *</label><small class="mx-2 text-info">(حداکثر 500Mb)</small>
+<!--                    <label for="file">تصویر پایه درسی *</label><small class="mx-2 text-info">(حداکثر 2Mb)</small>-->
+                    <input type="file" class="form-control-file" id="GradeImage" ref="file" @change="handleFileUpload()" required>
+<!--                    <input type="file" class="form-control-file" id="file" ref="file" @change="handleFileUpload()" required>-->
                 </div>
                 <div>
                     <p class="alert-success alert-msg" v-if="alertSuccess">اطلاعات با موفقیت ثبت شد.</p>
-                    <p class="alert-danger alert-msg" v-if="alertDanger1">لطفا تمام فیلدها را پر کنید!</p>
+                    <p class="alert-danger alert-msg" v-if="alertDanger1">لطفا تمام فیلدها را با اطلاعات صحیح پر نمایید!</p>
                     <p class="alert-danger alert-msg" v-if="alertDanger2">مشکلی رخ داده است، لطفا مجددا امتحان کنید!</p>
                 </div>
                 <div class="btn-div">
@@ -38,13 +36,16 @@
                 Name: '',
                 Description: '',
                 GradeImage: '',
-                file: '',
                 alertSuccess: false,
                 alertDanger1: false,
                 alertDanger2: false
             }
         },
         methods: {
+            handleFileUpload() {
+                this.GradeImage = this.$refs.file.files[0];
+                console.log(this.GradeImage)
+            },
             addSchoolGrade(){
                 let data = new FormData();
                 data.set('Name', this.Name);
@@ -72,43 +73,6 @@
                         console.log(err);
                     });
             },
-
-            onSubmit() {
-                let data = new FormData();
-                data.set('Name', this.Name);
-                data.set('Description', this.Description);
-                data.append('file', this.file);
-                axios({
-                    url: '/api/v1/SchoolGrade/addSchoolGrade',
-                    data: data,
-                    headers: {'Content-Type': 'multipart/form-data'},
-                    method: 'post'
-                })
-                    .then(function (response) {
-                        console.log(response);
-                        // window.location.href = "/dashboard";
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            }
-
-            // onSubmit(){
-            //     const gradeData = {
-            //         gradeName: this.gradeName,
-            //         gradeDescription: this.gradeDescription
-            //     }
-            //     console.log(gradeData)
-            //     axios.post('/posts') //backend URL path
-            //         .then((res)=>{
-            //             console.log(res)
-            //             this.alertSuccess = true
-            //         })
-            //         .catch((err)=>{
-            //             this.alertDanger1 = true
-            //             console.log(err)
-            //         })
-            // }
         }
     }
 </script>

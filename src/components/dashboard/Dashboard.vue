@@ -9,7 +9,9 @@
             <div class="col-md-10 pdng-md-r0">
                 <div class="dshbrd-nav">
                     <nav>
-                        <p class="mb-0 pt-1">{{email}}</p>
+                        <p class="mb-0 pt-1 pl-2">
+                            <router-link to="/" class="sidebarLi" >نمایش ویدئوها</router-link>
+                        </p>
                     </nav>
                 </div>
             </div>
@@ -19,9 +21,9 @@
                 <div class="dshbrd-sidebar">
                     <div>
                         <ul class="dshbrd-sidebar-ul" id="myDIV">
-                            <router-link to="/dashboard/levels" tag="li" class="sidebarLi" onclick="activeTab(event)"><a>پایه درسی</a></router-link>
-                            <router-link to="/dashboard/books" tag="li" class="sidebarLi" onclick="activeTab(event)" ><a>کتاب درسی</a></router-link>
-                            <router-link to="/dashboard/contents" tag="li" class="sidebarLi" onclick="activeTab(event)"><a>محتوا</a></router-link>
+                            <router-link to="/dashboard/Upload" tag="li" class="sidebarLi" onclick="activeTab(event)"><a>فرم آپلود ویدئو</a></router-link>
+                            <router-link to="/dashboard/Videos" tag="li" class="sidebarLi" onclick="activeTab(event)" ><a>لیست ویدئوها</a></router-link>
+                            <router-link to="/dashboard/EditVideo" tag="li" class="sidebarLi" onclick="activeTab(event)" ><a>ویرایش و حذف ویدئو</a></router-link>
                         </ul>
                     </div>
                 </div>
@@ -38,27 +40,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
     export default {
-        data(){
-            return {
-                email: ''
-            }
-        },
-        created() {
-            // axios.get('/users/1')
-            //     .then((res)=>{
-            //         console.log(res.data)
-            //         const data = res.data
-            //         this.email = data.email
-            //     })
-            //     .catch((err)=>{
-            //         console.log(err)
-            //     })
-            console.log(this.$store.state.token)
-            console.log(this.$store.state.user)
-
-        }
     }
 
 </script>

@@ -10,10 +10,10 @@
                         <div class="login-title">
                             <h4>ورود کاربران</h4>
                         </div>
-                        <div>
+                        <form @submit.prevent="login">
                             <div class="form-group">
-                                <label for="username">نام کاربری</label>
-                                <input type="text" class="form-control" id="username" v-model="username"  placeholder="" required>
+                                <label for="email">ایمیل</label>
+                                <input type="text" class="form-control" id="email" v-model="email"  placeholder="" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">رمز عبور</label>
@@ -28,20 +28,11 @@
                                 <p class="alert-msg alert-danger" v-if="alert2">مشکلی رخ داده است، لطفا مجددا امتحان کنید!</p>
                             </div>
                             <div class="btn-div">
-<!--                                <button @click="onSubmit" class="btn btn-lb lgnbtn">ورود</button>-->
-                                <button @click="login" class="btn btn-lb lgnbtn">ورود</button>
+                                <button class="btn btn-lb lgnbtn">ورود</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="mt-4 mx-3">
-<!--                        <p><small>-->
-<!--                            <span>-->
-<!--                                <a href="#">ثبت نام کاربران جدید</a>-->
-<!--                            </span> |-->
-<!--                            <span>-->
-<!--                                <a href="#">رمز عبور خود را فراموش کرده اید ؟</a>-->
-<!--                            </span>-->
-<!--                        </small></p>-->
                         <p><small>
                                 <a href="#">رمز عبور خود را فراموش کرده اید ؟</a>
                         </small></p>
@@ -56,11 +47,11 @@
 </template>
 
 <script>
-    // import axios from 'axios'
+    import axios from 'axios'
     export default {
         data(){
             return {
-                username: '',
+                email: '',
                 password: '',
                 alert: false,
                 alert2: false
@@ -68,35 +59,31 @@
         },
         methods: {
             login: function() {
-                // let username = this.username;
-                // let password = this.password;
-                let data = {
-                    username: this.username,
-                    password: this.password
-                };
-                console.log(data);
-                // this.$store.dispatch("login", { username, password })
-                this.$store.dispatch('login', data).then((res) => {
-                    const statusCode = res.data.statusCode
-                        console.log(res.data);
-                        console.log(statusCode);
-                    if(statusCode === 200){
-                        console.log("okkkkkkk");
-                        console.log('200 status')
-                        this.$router.push("/dashboard");
+                let data = new FormData();
+                data.set('email', this.email);
+                data.set('password', this.password);
+                console.log('>> formData >> ', data);
+                this.$store
+                    .dispatch("login", data)
+                    .then((res) => {
+                        const statusCode = res.status
+                        if(statusCode === 200){
+                            console.log( 'okkkkkkk');
+                            console.log('hello')
+                            alert('تایید شما با موفقیت انجام شد، وارد حساب کاربری خود شوید!')
+                            this.$router.push("/login")
+                        }else if(statusCode === 400){
+                            console.log( 'not okkkkkkkkkk');
+                            this.alert = true;
+                        }else{
+                            this.alert2 = true;
+                        }
 
-                    }else{
-                        console.log("user or pass is not correct");
-                        console.log('400 status')
-                        this.alert = true
-                    }
                     })
                     .catch((err) => {
-                        this.alert2 = true;
                         console.log(err)
+                        this.alert2 = true;
                     });
-                // return this.$router.push("/dashboard");
-
             },
             // rememberMe: function() {
             //     this.$store.dispatch("rememberMe")
